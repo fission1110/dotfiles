@@ -64,6 +64,8 @@ if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]$(parse_git_branch):\[\033[01;34m\]\w\[\033[00m\]()\$ '
 	PS1="${debian_chroot:+($debian_chroot)}\[\e[38;5;202m\]\$prompt_status\[\e[38;5;245m\]\u\[\e[00m\]@\[\e[38;5;5m\]\h\[\e[00m\]:\[\e[38;5;172m\]\w\[\e[00m\]\$(parse_git_branch)⟫ "
+	# Custom bash prompt via kirsle.net/wizards/ps1.html, red, uncomment for remotes
+	#PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\u@\h \w \\$ \[$(tput sgr0)\]"
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
