@@ -157,12 +157,12 @@ function! Updatectags(more)
     echo "Updating more Ctags!"
 	" If more, losen the restrictions on ctags to include c, c++, etc files..
 	if a:more
-		execute "!/home/ryan/.vim/ctags/ctags_update_more.sh"
+		execute "!"+$HOME+"/.vim/ctags/ctags_update_more.sh"
 	else
-		execute "!/home/ryan/.vim/ctags/ctags_update.sh"
+		execute "!"+$HOME+"/.vim/ctags/ctags_update.sh"
 	endif
    	let cwd = getcwd()."/main"
-	let ctags_file = "/home/ryan/.vim/mytags"
+	let ctags_file = $HOME+"/.vim/mytags"
     let  &tags = ctags_file.cwd
 endfunction
 
@@ -172,7 +172,7 @@ function! Findctags(silent)
         echo "Finding Ctags!"
     endif
    	let cwd = getcwd().""
-	let ctags_file = "/home/ryan/.vim/mytags"
+	let ctags_file = $HOME+"/.vim/mytags"
     let ctags_path = ctags_file.cwd."/"
     let loopcount = 0
     while !filereadable(ctags_path."main") && loopcount < 10
@@ -227,7 +227,7 @@ let g:phpqa_codecoverage_showcovered = 0
 
 
 "let g:EasyGrepDefaultUserPattern='*.php *.ctp *.js *.po'
-let g:EasyGrepFileAssociations='/home/ryan/.vim/bundle/EasyGrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepFileAssociations=$HOME+'/.vim/bundle/EasyGrep/plugin/EasyGrepFileAssociations'
 let g:EasyGrepMode=2
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=1
