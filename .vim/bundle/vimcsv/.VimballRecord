@@ -1,0 +1,1 @@
+csv-0.30.vmb: call delete('/home/ryan/.vim/bundle/vimcsv//ftplugin/csv.vim')|call delete('/home/ryan/.vim/bundle/vimcsv//doc/ft-csv.txt')|call delete('/home/ryan/.vim/bundle/vimcsv//syntax/csv.vim')|call delete('/home/ryan/.vim/bundle/vimcsv//ftdetect/csv.vim')|call delete('/home/ryan/.vim/bundle/vimcsv//plugin/csv.vim')
