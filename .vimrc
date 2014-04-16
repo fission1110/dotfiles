@@ -162,7 +162,7 @@ function! Updatectags(more)
 		execute "!"+$HOME+"/.vim/ctags/ctags_update.sh"
 	endif
    	let cwd = getcwd()."/main"
-	let ctags_file = $HOME+"/.vim/mytags"
+	let ctags_file = "/home/ryan/.vim/mytags"
     let  &tags = ctags_file.cwd
 endfunction
 
@@ -172,7 +172,7 @@ function! Findctags(silent)
         echo "Finding Ctags!"
     endif
    	let cwd = getcwd().""
-	let ctags_file = $HOME+"/.vim/mytags"
+	let ctags_file = "/home/ryan/.vim/mytags"
     let ctags_path = ctags_file.cwd."/"
     let loopcount = 0
     while !filereadable(ctags_path."main") && loopcount < 10
