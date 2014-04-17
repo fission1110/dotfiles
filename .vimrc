@@ -82,10 +82,16 @@ inoremap <expr> <C-f> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 " %    - remember the buffer list (if vim started without a file arg) " n    - set name of viminfo file
 set viminfo='20,\"50,:20,%,n~/.viminfo
 
+
+"#############Python Stuff#############
 "execute python, then drop to the interpreter
 nnoremap <buffer> <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
 "execute python
 nnoremap <buffer> <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
+au FileType python setlocal smartindent
+au FileType python setlocal tabstop=4
+au FileType python setlocal shiftwidth=4
+au FileType python setlocal expandtab
 
 " Generic highlight changes
 "highlight Comment cterm=none ctermfg=Gray
