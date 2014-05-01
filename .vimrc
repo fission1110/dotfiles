@@ -85,9 +85,10 @@ set viminfo='20,\"50,:20,%,n~/.viminfo
 
 "#############Python Stuff#############
 "execute python, then drop to the interpreter
-nnoremap <buffer> <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
 "execute python
-nnoremap <buffer> <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
+
 au FileType python setlocal smartindent
 au FileType python setlocal tabstop=4
 au FileType python setlocal shiftwidth=4
