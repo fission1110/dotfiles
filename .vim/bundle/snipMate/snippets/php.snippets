@@ -95,7 +95,6 @@ snippet doc_fp
 	 * ${1:undocumented function}
 	 *
 	 * @return ${2:void}
-	 * @author ${3:`g:snips_author`}
 	 */${4}
 # Function signature
 snippet doc_s
@@ -103,7 +102,6 @@ snippet doc_s
 	 * ${4:undocumented function}
 	 *
 	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
 	 */
 	${1}function ${2}(${3});${7}
 # Function
@@ -112,7 +110,6 @@ snippet doc_f
 	 * ${4:undocumented function}
 	 *
 	 * @return ${5:void}
-	 * @author ${6:`g:snips_author`}
 	 */
 	${1}function ${2}(${3}) {
 		${7}
@@ -287,3 +284,16 @@ snippet rett
 	return true;
 snippet retf
 	return false;
+
+snippet @ @param array
+	@param array $${1:name} ${2:description}
+snippet @ @param integer
+	@param integer $${1:name} ${2:description}
+snippet @ @param string
+	@param string $${1:name} ${2:description}
+snippet @ @param object
+	@param ${1:object} $${2:name} ${3:description}
+snippet @ @return
+	@return ${1:array} ${2:description}
+snippet cl
+	\CakeLog::write('${1:error}', print_r('${2}', true));

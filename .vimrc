@@ -1,4 +1,12 @@
 "#############defaults#############
+set background=dark
+set showcmd		" Show (partial) command in status line.
+set showmatch		" Show matching brackets.
+set ignorecase		" Do case insensitive matching
+set smartcase		" Do smart case matching
+set incsearch		" Incremental search
+set autowrite		" Automatically save before commands like :next and :make
+
 set ttyfast
 syntax on
 filetype plugin on
@@ -28,7 +36,7 @@ nnoremap } <C-i>
 cmap w!! w !sudo tee % >/dev/null
 set cryptmethod=blowfish
 
-nmap <leader>r :redraw!<CR>
+nmap <leader>r :redraw!<CR>jk
 "yank into clipboard leader shortcut
 vmap <leader>y "+y
 "put into clipboard leader shortcut
@@ -43,7 +51,10 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 
+vmap <leader>j :!json_pp<CR>
 
+au FileType php nmap <leader>ee :exec '!php ' shellescape(@%, 1)<cr>
+au FileType php nmap <leader>ei :exec '!php -a' shellescape(@%, 1)<cr>
 
 "#############Omni-Complete#############
 " Omnicomplete to ctrl + F
