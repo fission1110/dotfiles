@@ -4,7 +4,26 @@ set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
+
+
+"Auto read buffer
+set autoread
+augroup checktime
+    au!
+    if !has("gui_running")
+        "silent! necessary otherwise throws errors when using command
+        "line window.
+        autocmd BufEnter        * silent! checktime
+        autocmd CursorHold      * silent! checktime
+        autocmd CursorHoldI     * silent! checktime
+        "these two _may_ slow things down. Remove if they do.
+        "autocmd CursorMoved     * silent! checktime
+        "autocmd CursorMovedI    * silent! checktime
+    endif
+augroup END
+
 set incsearch		" Incremental search
+
 set autowrite		" Automatically save before commands like :next and :make
 
 set ttyfast
@@ -53,8 +72,20 @@ map <C-l> <C-w>l
 
 vmap <leader>j :!json_pp<CR>
 
+
+au FileType c nmap <leader>ee :exec '!gcc -o test ' shellescape(@%, 1)<cr> :exec '!./test'<cr>
+au FileType c nmap <leader>ei :exec '!gcc -g -o test ' shellescape(@%, 1)<cr> :exec '!gdb ./test'<cr>
+
 au FileType php nmap <leader>ee :exec '!php ' shellescape(@%, 1)<cr>
 au FileType php nmap <leader>ei :exec '!php -a' shellescape(@%, 1)<cr>
+
+au FileType mysql nmap <leader>ee :exec '!mysql -u root -ppassword < ' shellescape(@%, 1)<cr>
+au FileType postgres nmap <leader>ee :exec '!postgres -u root -ppassword < ' shellescape(@%, 1)<cr>
+
+au FileType sql set ft=mysql
+
+"Set ft=messages when file is called messages
+autocmd BufNewFile,BufReadPost *messages* :set filetype=messages
 
 "#############Omni-Complete#############
 " Omnicomplete to ctrl + F
@@ -81,7 +112,6 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <C-f> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 "inoremap <expr> <M-,> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
 
 
 

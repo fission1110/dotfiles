@@ -296,4 +296,4 @@ snippet @ @param object
 snippet @ @return
 	@return ${1:array} ${2:description}
 snippet cl
-	\CakeLog::write('${1:error}', print_r('${2}', true));
+	\CakeLog::write('error', print_r(${1}, true));
