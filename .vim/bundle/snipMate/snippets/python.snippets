@@ -24,7 +24,7 @@ snippet with
 	with ${1:expr} as ${2:var}:
 		${3:# code...}
 # New Class
-snippet cl
+snippet cla
 	class ${1:ClassName}(${2:object}):
 		"""${3:docstring for $1}"""
 		def __init__(self, ${4:arg}):
@@ -139,3 +139,5 @@ snippet testcase
 			${3:pass}
 snippet fut
 	from __future__ import ${1}
+snippet cl
+	self.logger.debug(${1})
