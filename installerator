@@ -1,0 +1,42 @@
+# Terminal and shit
+apt-get install terminator zsh byobu
+
+# Display Manager
+apt-get install i3
+
+# Vim stuff
+apt-get install vim exuberant-ctags
+
+# neovim build stuff
+apt-get install build-essential python-pip python3-pip libtool autoconf automake cmake g++ pkg-config unzip
+
+# Git stuff
+apt-get install git git-gui
+
+# LAMP
+apt-get install apache2 php5 php5-curl php5-cli php5-debug mysql-server mysql-client
+
+# Graphics tools
+apt-get install gimp inkscape
+
+cd ~
+git clone https://github.com/fission1110/dotfiles.git
+cd ./dotfiles
+chown -r $SUDO_USER:$SUDO_USER .
+mv ./ ../
+
+# Permissions
+chown $SUDO_USER:$SUDO_USER /usr/local/bin
+chown $SUDO_USER:$SUDO_USER /usr/local/src
+chown -r $SUDO_USER:$SUDO_USER /var/www
+
+# neovim
+cd /usr/local/src
+git clone https://github.com/neovim/neovim.git
+cd ./neovim
+make all
+make install
+
+pip2 install neovim
+pip3 install neovim
+
