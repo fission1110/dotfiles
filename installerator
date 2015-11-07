@@ -1,3 +1,7 @@
+# Upgrade
+apt-get -y update
+apt-get -y upgrade
+
 # Terminal and shit
 apt-get -y install terminator zsh byobu
 
@@ -8,7 +12,7 @@ apt-get -y install i3
 apt-get -y install vim exuberant-ctags
 
 # neovim build stuff
-apt-get -y install build-essential python-pip python3-pip libtool autoconf automake cmake g++ pkg-config unzip
+apt-get -y install build-essential libtool autoconf automake cmake g++ pkg-config unzip
 
 # Git stuff
 apt-get -y install git git-gui
@@ -18,6 +22,9 @@ apt-get -y install apache2 php5 php5-curl php5-cli php5-debug mysql-server mysql
 
 # Graphics tools
 apt-get -y install gimp inkscape
+
+#Python
+apt-get -y install python-pip python3-pip ipython ipython3 python-dev python3-dev
 
 cd ~
 git clone https://github.com/fission1110/dotfiles.git
