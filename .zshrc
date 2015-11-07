@@ -17,7 +17,7 @@ ZSH_THEME="kafeitu"
 # CASE_SENSITIVE="true"
 
 # Uncomment this to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
+DISABLE_AUTO_UPDATE="true"
 
 # Uncomment to change how often to auto-update? (in days)
 # export UPDATE_ZSH_DAYS=13
@@ -71,3 +71,9 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 #vi mode
 bindkey -v
+
+alias psql_log='su -c "psql ds_log" postgres'
+alias psql='su -c "psql dsweb" postgres'
+export XDG_CONFIG_HOME=~
+alias vvim=/usr/bin/vim
+alias vim=/usr/local/bin/nvim
