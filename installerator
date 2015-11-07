@@ -1,23 +1,23 @@
 # Terminal and shit
-apt-get install terminator zsh byobu
+apt-get -y install terminator zsh byobu
 
 # Display Manager
-apt-get install i3
+apt-get -y install i3
 
 # Vim stuff
-apt-get install vim exuberant-ctags
+apt-get -y install vim exuberant-ctags
 
 # neovim build stuff
-apt-get install build-essential python-pip python3-pip libtool autoconf automake cmake g++ pkg-config unzip
+apt-get -y install build-essential python-pip python3-pip libtool autoconf automake cmake g++ pkg-config unzip
 
 # Git stuff
-apt-get install git git-gui
+apt-get -y install git git-gui
 
 # LAMP
-apt-get install apache2 php5 php5-curl php5-cli php5-debug mysql-server mysql-client
+apt-get -y install apache2 php5 php5-curl php5-cli php5-debug mysql-server mysql-client
 
 # Graphics tools
-apt-get install gimp inkscape
+apt-get -y install gimp inkscape
 
 cd ~
 git clone https://github.com/fission1110/dotfiles.git
@@ -39,4 +39,3 @@ make install
 
 pip2 install neovim
 pip3 install neovim
-
