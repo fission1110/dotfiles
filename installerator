@@ -23,14 +23,21 @@ apt-get -y install apache2 php5 php5-curl php5-cli php5-debug mysql-server mysql
 # Graphics tools
 apt-get -y install gimp inkscape
 
-#Python
+# Python
 apt-get -y install python-pip python3-pip ipython ipython3 python-dev python3-dev
+
+# Google Chrome (Open source chromium)
+apt-get -y install chromium-browser
+
 
 cd ~
 git clone https://github.com/fission1110/dotfiles.git
 cd ./dotfiles
-chown -r $SUDO_USER:$SUDO_USER .
-mv ./ ../
+# At some point, this should back up all the files that will be overwritten
+chown -r $SUDO_USER:$SUDO_USER ./*
+chown -r $SUDO_USER:$SUDO_USER ./.*
+cp -r ./* ../
+cp -r ./.* ../
 
 # Permissions
 chown $SUDO_USER:$SUDO_USER /usr/local/bin

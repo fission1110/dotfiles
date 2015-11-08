@@ -1,0 +1,18 @@
+[global_config]
+[keybindings]
+[profiles]
+  [[default]]
+    use_custom_command = True
+    background_image = /home/hkr/Pictures/earth_half.jpg
+    background_type = image
+    custom_command = byobu-screen -R
+    scroll_background = False
+[layouts]
+  [[default]]
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+    [[[window0]]]
+      type = Window
+      parent = ""
+[plugins]

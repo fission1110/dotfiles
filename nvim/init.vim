@@ -197,9 +197,9 @@ inoremap <C-l> <C-x><C-o>
 
 "#############Python Stuff#############
 "execute python, then drop to the interpreter
-au FileType python nmap <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ei :exec '!python -i' shellescape(@%, 1)<cr>
 "execute python
-au FileType python nmap <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ee :exec '!python' shellescape(@%, 1)<cr>
 
 au FileType python setlocal smartindent
 au FileType python setlocal tabstop=4
