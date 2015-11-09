@@ -34,15 +34,17 @@ cd ~
 git clone https://github.com/fission1110/dotfiles.git
 cd ./dotfiles
 # At some point, this should back up all the files that will be overwritten
-chown -r $SUDO_USER:$SUDO_USER ./*
-chown -r $SUDO_USER:$SUDO_USER ./.*
+chown -R $SUDO_USER:$SUDO_USER ./*
+chown -R $SUDO_USER:$SUDO_USER ./.*
 cp -r ./* ../
 cp -r ./.* ../
 
 # Permissions
 chown $SUDO_USER:$SUDO_USER /usr/local/bin
 chown $SUDO_USER:$SUDO_USER /usr/local/src
-chown -r $SUDO_USER:$SUDO_USER /var/www
+chown -R $SUDO_USER:$SUDO_USER /var/www
+chown -R $SUDO_USER:$SUDO_USER ../.byobu/
+chown -R $SUDO_USER:$SUDO_USER ../.config/terminator
 
 # neovim
 cd /usr/local/src
