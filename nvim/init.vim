@@ -77,8 +77,7 @@ au FileType sh nmap <leader>ee :exec '!bash' shellescape(@%, 1)<cr>
 au FileType c nmap <leader>ee :exec '!gcc -o test ' shellescape(@%, 1)<cr> :exec '!./test'<cr>
 au FileType c nmap <leader>ei :exec '!gcc -g -o test ' shellescape(@%, 1)<cr> :exec '!gdb ./test'<cr>
 
-au FileType php nmap <leader>ee :exec '!php ' shellescape(@%, 1)<cr>
-au FileType php nmap <leader>ei :exec '!php -a' shellescape(@%, 1)<cr>
+au FileType php nmap <leader>ee :VdebugStart<cr>
 
 au FileType mysql nmap <leader>ee :exec '!mysql -u root -ppassword < ' shellescape(@%, 1)<cr>
 au FileType postgres nmap <leader>ee :exec '!postgres -u root -ppassword < ' shellescape(@%, 1)<cr>
@@ -192,14 +191,64 @@ let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
 let g:ycm_collect_identifiers_from_tags_files = 1
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
-au FileType php set completefunc=phpcomplete#CompletePHP
+
+"au FileType php set completefunc=phpcomplete#CompletePHP
 inoremap <C-l> <C-x><C-o>
+
+let g:ycm_semantic_triggers =  {
+  \   'c' : ['->', '.'],
+  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
+  \             're!\[.*\]\s'],
+  \   'ocaml' : ['.', '#'],
+  \   'cpp,objcpp' : ['->', '.', '::'],
+  \   'perl' : ['->'],
+  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
+  \   'ruby' : ['.', '::'],
+  \   'lua' : ['.', ':'],
+  \   'erlang' : [':'],
+  \ }
+let g:ycm_autoclose_preview_window_after_insertion = 1
+let g:phpcomplete_complete_for_unknown_classes = 0
+
+
+
+let g:vdebug_options = {
+\    "port" : 9000,
+\    "server" : '',
+\    "timeout" : 20,
+\    "on_close" : 'detach',
+\    "break_on_open" : 1,
+\    "ide_key" : '',
+\    "path_maps" : {'/gui' : '/var/www/atpsa-develop/gui'},
+\    "debug_window_level" : 0,
+\    "debug_file_level" : 0,
+\    "debug_file" : "",
+\    "watch_window_style" : 'expanded',
+\    "marker_default" : '⬦',
+\    "marker_closed_tree" : '▸',
+\    "marker_open_tree" : '▾'
+\}
+let g:vdebug_keymap = {
+\    "run" : "<F5>",
+\    "run_to_cursor" : "<Enter>",
+\    "step_over" : "<Down>",
+\    "step_into" : "<Right>",
+\    "step_out" : "<Left>",
+\    "close" : "<ESC>",
+\    "detach" : "q",
+\    "set_breakpoint" : "<leader>m",
+\    "get_context" : "<F11>",
+\    "eval_under_cursor" : "<F12>",
+\    "eval_visual" : "<Leader>ee",
+\}
+"let g:vdebug_features = {'max_depth': 2048}
+
 
 "#############Python Stuff#############
 "execute python, then drop to the interpreter
-au FileType python nmap <leader>ei :exec '!python -i' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
 "execute python
-au FileType python nmap <leader>ee :exec '!python' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
 
 au FileType python setlocal smartindent
 au FileType python setlocal tabstop=4
@@ -214,6 +263,9 @@ let g:jellybeans_overrides = {
 \              'attr': 'underline' },
 \    'Identifier': { 'guifg': '5B79BA', 'guibg': '',
 \              'ctermfg': 'LightCyan', 'ctermbg': '',
+\              'attr': '' },
+\    'DbgBreakptLine': { 'guifg': '1c1c1c', 'guibg': '99ad6a',
+\              'ctermfg': '1c1c1c', 'ctermbg': '99ad6a',
 \              'attr': '' },
 \}
 
