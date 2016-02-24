@@ -1,2 +1,21 @@
-maptimeout 2
+termcapinfo xterm ti@:te@
+termcapinfo xterm 'hs:ts=\E]2;:fs=07:ds=\E]2;screen07'
 
+termcapinfo rxvt-unicode ti@:te@
+termcapinfo rxvt ti@:te@
+termcapinfo rxvt 'hs:ts=\E]2;:fs=07:ds=\E]2;screen07'
+
+bind j focus down
+bind k focus up
+bind h focus left
+bind l focus right
+
+bind ^j focus down
+bind ^k focus up
+bind ^h focus left
+bind ^l focus right
+
+bind t focus top
+bind b focus bottom
+
+maptimeout 0
