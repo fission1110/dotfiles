@@ -71,7 +71,7 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 
 vmap <leader>j :!json_pp<CR>
-
+au FileType sh nmap <leader>ee :exec '!bash' shellescape(@%, 1)<cr>
 
 au FileType c nmap <leader>ee :exec '!gcc -o test ' shellescape(@%, 1)<cr> :exec '!./test'<cr>
 au FileType c nmap <leader>ei :exec '!gcc -g -o test ' shellescape(@%, 1)<cr> :exec '!gdb ./test'<cr>
@@ -198,16 +198,16 @@ au BufRead *.ctp set ft=php.html
 au BufNewFile *.ctp set ft=php.html
 
 " If 1, losen the restrictions on ctags to include c, c++, etc files..
-nmap <f12> :call Updatectags(1)<CR>
-nmap <f10> :call Updatectags(0)<CR>
+nmap <f10> :call Updatectags(1)<CR>
+nmap <f12> :call Updatectags(0)<CR>
 
 function! Updatectags(more)
     echo "Updating more Ctags!"
 	" If more, losen the restrictions on ctags to include c, c++, etc files..
 	if a:more
-		execute "!"+$HOME+"/.vim/ctags/ctags_update_more.sh"
+		execute "!/home/ryan/.vim/ctags/ctags_update_more.sh"
 	else
-		execute "!"+$HOME+"/.vim/ctags/ctags_update.sh"
+		execute "!/home/ryan/.vim/ctags/ctags_update.sh"
 	endif
    	let cwd = getcwd()."/main"
 	let ctags_file = "/home/ryan/.vim/mytags"
@@ -282,7 +282,7 @@ let g:EasyGrepRecursive=1
 let g:EasyGrepSearchCurrentBufferDir=0
 let g:EasyGrepIgnoreCase=1
 let g:EasyGrepHidden=0
-let g:EasyGrepFilesToExclude=''
+let g:EasyGrepFilesToExclude='main.js *webroot/js/languages'
 let g:EasyGrepAllOptionsInExplorer=1
 let g:EasyGrepWindow=0
 let g:EasyGrepReplaceWindowMode=2
@@ -450,3 +450,7 @@ au FileType po nmap <leader>lib dt}ml<C-h>yi{<C-l>`lhp
 
 "make yank add to the system clipboard
 set clipboard=unnamedplus
+
+" HEX MODE!!
+nmap <leader>hh :%!xxd<cr>
+nmap <leader>hu :%!xxd -r<cr>

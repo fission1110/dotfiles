@@ -123,3 +123,6 @@ fi
 [ -r /home/ryan/.byobu/prompt ] && . /home/ryan/.byobu/prompt   #byobu-prompt#
 
 set -o vi
+
+#Display getting over-ridden is annoying. 90% of the time, I want display to be set to 0.0.
+alias display='export DISPLAY=:0.0'

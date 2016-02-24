@@ -4,7 +4,7 @@ CTAGS_LOC=~/nvim/ctags/mytags
 FILENAME='/main'
 cd $LIBRARY
 mkdir -p $CTAGS_LOC$LIBRARY
-exec ctags-exuberant --fields=+l -R -V -f $CTAGS_LOC$LIBRARY$FILENAME \
+exec ctags --fields=+aimSl -R -V -f $CTAGS_LOC$LIBRARY$FILENAME \
     -h \".php.ctp\" \
     --exclude=*\.h \
     --exclude=*\.c \

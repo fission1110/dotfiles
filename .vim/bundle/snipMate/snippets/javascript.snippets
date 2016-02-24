@@ -105,6 +105,12 @@ snippet fori
 # hasOwnProperty
 snippet has
 	hasOwnProperty(${1})
+snippet foreach
+	for (var ${1:key} in ${2:things}) {
+		if (${2}.hasOwnProperty(${1})) {
+			${3:$2[$1]}
+		}
+	}
 # docstring
 snippet /**
 	/**

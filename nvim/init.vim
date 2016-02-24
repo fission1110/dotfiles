@@ -1,5 +1,5 @@
 call pathogen#infect()
-
+"let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $TERM="screen-256color"
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
@@ -7,6 +7,8 @@ set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
 set nowrap	"Don't wrap long lines
 set hidden	"Hide edited buffers rather than quit them
+
+set clipboard+=unnamedplus
 
 set smartindent	"When creating a new line in a block it will put the cursor in the correct place
 set autoindent	"When creating a new line in a block it will put the cursor in the correct place
@@ -212,12 +214,15 @@ let g:phpcomplete_complete_for_unknown_classes = 0
 
 
 
+let g:ycm_autoclose_preview_window_after_insertion = 0
+let g:phpcomplete_complete_for_unknown_classes = 0
+
 let g:vdebug_options = {
 \    "port" : 9000,
 \    "server" : '',
 \    "timeout" : 20,
 \    "on_close" : 'detach',
-\    "break_on_open" : 1,
+\    "break_on_open" : 0,
 \    "ide_key" : '',
 \    "path_maps" : {'/gui' : '/var/www/atpsa-develop/gui'},
 \    "debug_window_level" : 0,
@@ -241,7 +246,7 @@ let g:vdebug_keymap = {
 \    "eval_under_cursor" : "<F12>",
 \    "eval_visual" : "<Leader>ee",
 \}
-"let g:vdebug_features = {'max_depth': 2048}
+let g:vdebug_features = {'max_depth': 10}
 
 
 "#############Python Stuff#############
@@ -257,8 +262,12 @@ au FileType python setlocal expandtab
 
 let g:jellybeans_use_lowcolor_black = 0
 
+"Search: green bg grey fg underline
+"Identifier(varibles): light deep blue fg
+"DbgBreakptLine: green bg grey  fg
+"Statement: bluegreen foreground
 let g:jellybeans_overrides = {
-\    'Search': { 'guifg': '000000', 'guibg': '99ad6a',
+\    'Search': { 'guifg': '1c1c1c', 'guibg': '99ad6a',
 \              'ctermfg': 'Magenta', 'ctermbg': '',
 \              'attr': 'underline' },
 \    'Identifier': { 'guifg': '5B79BA', 'guibg': '',
@@ -267,14 +276,21 @@ let g:jellybeans_overrides = {
 \    'DbgBreakptLine': { 'guifg': '1c1c1c', 'guibg': '99ad6a',
 \              'ctermfg': '1c1c1c', 'ctermbg': '99ad6a',
 \              'attr': '' },
+\    'Statement': { 'guifg': '447799', 'guibg': '',
+\              'ctermfg': '447799', 'ctermbg': '',
+\              'attr': '' },
 \}
 
 
 set background=dark
 colorscheme jellybeans
 
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+
 "change the statusline highlighted background color to black
 "
-hi StatusLine cterm=none ctermbg=DarkGrey
-hi Normal cterm=none ctermbg=none
-hi NonText cterm=none ctermbg=none
+hi StatusLine gui=none guibg=DarkGrey cterm=none ctermbg=DarkGrey
+hi Normal gui=none guibg=none cterm=none ctermbg=none
+hi NonText gui=none guibg=none  cterm=none ctermbg=none
+
