@@ -1,3 +1,9 @@
+#!/bin/bash
+if [[ -z $INSTALL_DIR ]]; then
+	echo "Don't run this directly"
+	exit
+fi
+
 echo -e $BOLD"[ REQUIRED APPS ]"$RESET
 APPS="gcc libtool autoconf automake cmake g++ pkg-config unzip"
 MISSING=0;
@@ -18,7 +24,7 @@ if [[ $MISSING -eq 1 ]]; then
 	echo    # (optional) move to a new line
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
-		apt-get -y install build-essential libtool autoconf automake cmake g++ pkg-config unzip
+		apt-get -y install build-essential libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
 	fi
 fi
 # neovim
@@ -26,8 +32,12 @@ cd /usr/local/src
 git clone https://github.com/neovim/neovim.git
 cd ./neovim
 
+git pull origin master
+git checkout $LATEST_STABLE_NVIM
+
 rm -r ./build
 make clean
+make distclean
 make CMAKE_BUILD_TYPE=Release
 make install
 

@@ -1,10 +1,12 @@
 #!/bin/bash
+INSTALL_DIR="/tmp/dotfiles"
+LATEST_STABLE_NVIM=v0.2.0
+
 RED="\e[31m"
 GREEN="\e[32m"
 BLUE="\e[34m"
 BOLD="\e[1m"
 RESET="\e[0m"
-INSTALL_DIR="/tmp/dotfiles"
 
 if [ "$EUID" -ne 0 ]
   then echo -e $RED"Please run as root"$RESET
