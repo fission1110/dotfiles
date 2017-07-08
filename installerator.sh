@@ -53,6 +53,9 @@ fi
 ls $INSTALL_DIR > /dev/null
 if [[ $? -ne 0 ]]; then
 	git clone https://github.com/fission1110/dotfiles.git $INSTALL_DIR
+else
+	cd $INSTALL_DIR
+	git pull origin master
 fi
 
 
