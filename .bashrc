@@ -62,8 +62,8 @@ fi
 
 if [ "$color_prompt" = yes ]; then
     #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-    #PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]$(parse_git_branch):\[\033[01;34m\]\w\[\033[00m\]()\$ '
-	PS1="${debian_chroot:+($debian_chroot)}\[\e[38;5;202m\]\$prompt_status\[\e[38;5;245m\]\u\[\e[00m\]@\[\e[38;5;5m\]\h\[\e[00m\]:\[\e[38;5;172m\]\w\[\e[00m\]\$(parse_git_branch)â« "
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]$(parse_git_branch):\[\033[01;34m\]\w\[\033[00m\]\$ '
+	#PS1="${debian_chroot:+($debian_chroot)}\[\e[38;5;202m\]\$prompt_status\[\e[38;5;245m\]\u\[\e[00m\]@\[\e[38;5;5m\]\h\[\e[00m\]:\[\e[38;5;172m\]\w\[\e[00m\]\$(parse_git_branch)â« "
 	# Custom bash prompt via kirsle.net/wizards/ps1.html, red, uncomment for remotes
 	#PS1="\[$(tput bold)\]\[$(tput setaf 1)\]\u@\h \w \\$ \[$(tput sgr0)\]"
 else
@@ -126,3 +126,5 @@ set -o vi
 
 #Display getting over-ridden is annoying. 90% of the time, I want display to be set to 0.0.
 alias display='export DISPLAY=:0.0'
+alias vvim=/usr/bin/vim
+alias vim=/usr/local/bin/nvim
