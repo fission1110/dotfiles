@@ -33,6 +33,8 @@ git clone https://github.com/neovim/neovim.git
 cd ./neovim
 
 git pull origin master
+# fetch the tags and other branch updates
+git fetch
 git checkout $LATEST_STABLE_NVIM
 
 rm -r ./build
