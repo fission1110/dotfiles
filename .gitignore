@@ -3,3 +3,4 @@
 .zsh_history
 .bash_history
 .local/share/nvim/shada/main.shada
+.i3/i3log
