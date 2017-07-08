@@ -74,6 +74,5 @@ bindkey -v
 
 alias psql_log='su -c "psql ds_log" postgres'
 alias psql='su -c "psql dsweb" postgres'
-export XDG_CONFIG_HOME=~
 alias vvim=/usr/bin/vim
 alias vim=/usr/local/bin/nvim

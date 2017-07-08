@@ -1,0 +1,5 @@
+.cache/ctrlp/mru/cache.txt
+.zcompdump*
+.zsh_history
+.bash_history
+.local/share/nvim/shada/main.shada
