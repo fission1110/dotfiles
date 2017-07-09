@@ -294,3 +294,5 @@ hi StatusLine gui=none guibg=DarkGrey cterm=none ctermbg=DarkGrey
 hi Normal gui=none guibg=none cterm=none ctermbg=none
 hi NonText gui=none guibg=none  cterm=none ctermbg=none
 
+" disable the online shortcut because it conflicts with <C-h> (move to left window)
+let g:php_manual_online_search_shortcut=''
