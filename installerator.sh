@@ -14,9 +14,9 @@ if [ "$EUID" -ne 0 ]
 fi
 
 echo -e $BOLD"[ RECOMMENDED APPS ]"$RESET
-APPS="zsh byobu terminator vim nvim ctags apache2 php mysqld mysql gimp inkscape pip2 pip3 ipython ipython3 chromium-browser gitk git-gui"
+APPS="zsh byobu terminator vim nvim ctags apache2 php mysqld mysql gimp inkscape pip2 pip3 ipython ipython3 chromium-browser gitk"
 for i in $APPS; do
-	echo -e -n $BLUE"> $RESET $i"
+	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e $GREEN"[FOUND]"$RESET
@@ -30,7 +30,7 @@ echo -e $BOLD"[ REQUIRED APPS ]"$RESET
 APPS="git"
 MISSING=0;
 for i in $APPS; do
-	echo -e -n $BLUE"> $RESET $i"
+	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e $GREEN"[FOUND]"$RESET

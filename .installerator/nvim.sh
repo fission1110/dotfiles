@@ -8,7 +8,7 @@ echo -e $BOLD"[ REQUIRED APPS ]"$RESET
 APPS="gcc libtool autoconf automake cmake g++ pkg-config unzip"
 MISSING=0;
 for i in $APPS; do
-	echo -e -n $BLUE"> $RESET $i"
+	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e $GREEN"[FOUND]"$RESET
@@ -46,7 +46,7 @@ make install
 APPS="pip2"
 MISSING=0;
 for i in $APPS; do
-	echo -e -n $BLUE"> $RESET $i"
+	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e $GREEN"[FOUND]"$RESET
@@ -63,7 +63,7 @@ fi
 APPS="pip3"
 MISSING=0;
 for i in $APPS; do
-	echo -e -n $BLUE"> $RESET $i"
+	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
 	if [[ $? -eq 0 ]]; then
 		echo -e $GREEN"[FOUND]"$RESET

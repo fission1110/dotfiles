@@ -1,4 +1,5 @@
 .cache/ctrlp/mru/cache.txt
+.cache/ctrlp/hist/cache.txt
 .zcompdump*
 .zsh_history
 .bash_history
