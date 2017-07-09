@@ -14,7 +14,7 @@ if [ "$EUID" -ne 0 ]
 fi
 
 echo -e $BOLD"[ RECOMMENDED APPS ]"$RESET
-APPS="zsh byobu terminator vim nvim ctags apache2 php mysqld mysql gimp inkscape pip2 pip3 ipython ipython3 chromium-browser gitk"
+APPS="zsh byobu terminator vim nvim ctags apache2 php mysqld mysql gimp inkscape pip2 pip3 ipython ipython3 chromium-browser gitk gdb"
 for i in $APPS; do
 	echo -e -n $BOLD$BLUE" [ * ] $RESET $i"
 	which $i > /dev/null
@@ -58,12 +58,26 @@ else
 	cd $INSTALL_DIR
 	git pull origin master
 fi
-
 echo -e $RESET;
 
-
-
 chmod +x -R $INSTALL_DIR/.installerator/*
+
+echo -e -n "Install Neovim? y/n:"
+read -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/nvim.sh
+fi
+
+echo -e -n "Install pwndbg? y/n:"
+read -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/pwndbg.sh
+fi
+
 
 echo -e -n "Overwrite home? $RED WARNING DESTRUCTIVE: $RESET this will overwrite files in your home directory. y/n:"
 read -n 1 -r
@@ -73,12 +87,4 @@ then
 	. $INSTALL_DIR/.installerator/overwrite-home.sh
 else
 	echo -e $BOLD"PROTIP:$RESET export HOME=$INSTALL_DIR; . $INSTALL_DIR/.bashrc"
-fi
-
-echo -e -n "Install Neovim? y/n:"
-read -n 1 -r
-echo    # (optional) move to a new line
-if [[ $REPLY =~ ^[Yy]$ ]]
-then
-	. $INSTALL_DIR/.installerator/nvim.sh
 fi

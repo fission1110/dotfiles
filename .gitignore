@@ -1,7 +1,12 @@
-.cache/ctrlp/mru/cache.txt
-.cache/ctrlp/hist/cache.txt
+.cache
+.local/share/nvim/shada/main.shada
+
 .zcompdump*
+
+.i3/i3log
+
 .zsh_history
 .bash_history
-.local/share/nvim/shada/main.shada
-.i3/i3log
+.gdb_history
+
+.pwndbg
