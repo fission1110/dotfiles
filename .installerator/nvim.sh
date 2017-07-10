@@ -57,7 +57,7 @@ for i in $APPS; do
 done
 
 if [[ $MISSING -eq 0 ]]; then
-	pip2 install neovim
+	pip2 install --upgrade neovim
 fi
 
 APPS="pip3"
@@ -74,5 +74,5 @@ for i in $APPS; do
 done
 
 if [[ $MISSING -eq 0 ]]; then
-	pip3 install neovim
+	pip3 install --upgrade neovim
 fi

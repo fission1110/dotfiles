@@ -88,3 +88,5 @@ then
 else
 	echo -e $BOLD"PROTIP:$RESET export HOME=$INSTALL_DIR; . $INSTALL_DIR/.bashrc"
 fi
+
+chown -R $SUDO_USER:$SUDO_USER $INSTALL_DIR
