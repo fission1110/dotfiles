@@ -20,6 +20,7 @@ let mapleader="," "Set the leader key
 syntax on
 filetype plugin on
 
+set relativenumber
 set nu "Show line numbers
 set fileencodings=utf-8 "Force utf8
 
@@ -47,7 +48,7 @@ cmap w!! w !sudo tee % >/dev/null
 nmap <C-f> :Grep 
 "let g:EasyGrepDefaultUserPattern='*.php *.ctp *.js *.po'
 let g:EasyGrepFileAssociations=$HOME+'/nvim/bundle/EasyGrep/plugin/EasyGrepFileAssociations'
-let g:EasyGrepMode=2
+let g:EasyGrepMode=0
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=1
 let g:EasyGrepSearchCurrentBufferDir=0
@@ -75,6 +76,7 @@ map <C-l> <C-w>l
 
 " ,ee will run the file
 au FileType sh nmap <leader>ee :exec '!bash' shellescape(@%, 1)<cr>
+xnoremap <leader>er :!python<cr>
 
 au FileType c nmap <leader>ee :exec '!gcc -o test ' shellescape(@%, 1)<cr> :exec '!./test'<cr>
 au FileType c nmap <leader>ei :exec '!gcc -g -o test ' shellescape(@%, 1)<cr> :exec '!gdb ./test'<cr>
@@ -220,13 +222,14 @@ let g:phpcomplete_complete_for_unknown_classes = 0
 let g:vdebug_options = {
 \    "port" : 9000,
 \    "server" : '',
-\    "timeout" : 20,
+\    "timeout" : 60,
 \    "on_close" : 'detach',
-\    "break_on_open" : 0,
+\    "break_on_open" : 1,
 \    "ide_key" : '',
 \    "path_maps" : {'/gui' : '/var/www/atpsa-develop/gui'},
 \    "debug_window_level" : 0,
 \    "debug_file_level" : 0,
+\    "continuous_mode" : 1,
 \    "debug_file" : "",
 \    "watch_window_style" : 'expanded',
 \    "marker_default" : '⬦',
@@ -251,14 +254,14 @@ let g:vdebug_features = {'max_depth': 10}
 
 "#############Python Stuff#############
 "execute python, then drop to the interpreter
-au FileType python nmap <leader>ei :exec '!ipython -i' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ei :exec '!python3 -i' shellescape(@%, 1)<cr>
 "execute python
-au FileType python nmap <leader>ee :exec '!ipython' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ee :exec '!python' shellescape(@%, 1)<cr>
 
 au FileType python setlocal smartindent
 au FileType python setlocal tabstop=4
 au FileType python setlocal shiftwidth=4
-au FileType python setlocal expandtab
+au FileType python setlocal noexpandtab
 
 let g:jellybeans_use_lowcolor_black = 0
 
@@ -293,6 +296,13 @@ match ExtraWhitespace /\s\+$/
 hi StatusLine gui=none guibg=DarkGrey cterm=none ctermbg=DarkGrey
 hi Normal gui=none guibg=none cterm=none ctermbg=none
 hi NonText gui=none guibg=none  cterm=none ctermbg=none
+" Neovim-qt Guifont command, to change the font
+command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
+" Set font on start
+let g:Guifont="DejaVu Sans Mono for Powerline:h13"
+
 
 " disable the online shortcut because it conflicts with <C-h> (move to left window)
 let g:php_manual_online_search_shortcut=''
+
+call deoplete#enable()
