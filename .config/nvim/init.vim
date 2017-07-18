@@ -92,7 +92,7 @@ au FileType sql set ft=mysql
 autocmd BufNewFile,BufReadPost *messages* :set filetype=messages
 
 " Use systags with c
-autocmd  FileType  c setlocal tags+=~/nvim/systags
+autocmd  FileType  c setlocal tags+=~/.config/nvim/systags
 
 "#############Nerdtree stuff#############
 autocmd VimEnter * NERDTree
@@ -147,12 +147,12 @@ function! Updatectags(more)
     echo "Updating more Ctags!"
 	" If more, losen the restrictions on ctags to include c, c++, etc files..
 	if a:more
-		execute "!~/nvim/ctags/ctags_update_more.sh"
+		execute "!~/.config/nvim/ctags/ctags_update_more_c.sh"
 	else
-		execute "!~/nvim/ctags/ctags_update.sh"
+		execute "!~/.config/nvim/ctags/ctags_update.sh"
 	endif
    	let cwd = getcwd()."/main"
-	let ctags_file = $HOME . "/nvim/mytags"
+	let ctags_file = $HOME . "/.config/nvim/mytags"
     let  &tags = ctags_file.cwd
 endfunction
 
@@ -161,7 +161,7 @@ function! Findctags(silent)
         echo "Finding Ctags!"
     endif
    	let cwd = getcwd().""
-	let ctags_file = $HOME . "/nvim/ctags/mytags"
+	let ctags_file = $HOME . "/.config/nvim/ctags/mytags"
     let ctags_path = ctags_file.cwd."/"
     let loopcount = 0
     while !filereadable(ctags_path."main") && loopcount < 10
@@ -224,9 +224,9 @@ let g:vdebug_options = {
 \    "server" : '',
 \    "timeout" : 60,
 \    "on_close" : 'detach',
-\    "break_on_open" : 1,
+\    "break_on_open" : 0,
 \    "ide_key" : '',
-\    "path_maps" : {'/gui' : '/var/www/atpsa-develop/gui'},
+\    "path_maps" : {'/gui' : '/home/ryan/Hack/work/atpsa-develop/gui'},
 \    "debug_window_level" : 0,
 \    "debug_file_level" : 0,
 \    "continuous_mode" : 1,
@@ -306,3 +306,4 @@ let g:Guifont="DejaVu Sans Mono for Powerline:h13"
 let g:php_manual_online_search_shortcut=''
 
 call deoplete#enable()
+:inoremap # X#

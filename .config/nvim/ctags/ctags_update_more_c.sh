@@ -1,6 +1,6 @@
 #!/bin/bash
 library=$(pwd)
-CTAGS_LOC=~/nvim/ctags/mytags
+CTAGS_LOC=~/.config/nvim/ctags/mytags
 FILENAME='/main'
 cd $library
 mkdir -p $CTAGS_LOC$library
