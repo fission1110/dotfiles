@@ -92,7 +92,7 @@ au FileType sql set ft=mysql
 autocmd BufNewFile,BufReadPost *messages* :set filetype=messages
 
 " Use systags with c
-autocmd  FileType  c setlocal tags+=~/.config/nvim/systags
+autocmd  FileType  c setlocal tags+=~/.config/nvim/ctags/systags
 
 "#############Nerdtree stuff#############
 autocmd VimEnter * NERDTree
@@ -307,3 +307,21 @@ let g:php_manual_online_search_shortcut=''
 
 call deoplete#enable()
 :inoremap # X#
+
+" Change neovim terminal settings to match my normal window settings
+tnoremap <Leader><ESC> <C-\><C-n>
+
+tnoremap <C-h> <C-\><C-n><C-w><C-h>
+tnoremap <C-j> <C-\><C-n><C-w><C-j>
+tnoremap <C-k> <C-\><C-n><C-w><C-k>
+tnoremap <C-l> <C-\><C-n><C-w><C-l>
+
+:au BufEnter * if &buftype == 'terminal' | :startinsert | endif
+
+" <leader>ti/<leader>ts to terminal split, somewhat matching nerdtree
+set splitright
+set splitbelow
+tnoremap <silent> <leader>ti <C-\><C-n>:execute "vert sp \| term"<cr>
+tnoremap <silent> <leader>ts <C-\><C-n>:execute "split sp \| term"<cr>
+nnoremap <silent> <leader>ti :execute "vert sp \| term"<cr>
+nnoremap <silent> <leader>ts :execute "split sp \| term"<cr>
