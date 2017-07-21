@@ -309,7 +309,8 @@ call deoplete#enable()
 :inoremap # X#
 
 " Change neovim terminal settings to match my normal window settings
-tnoremap <Leader><ESC> <C-\><C-n>
+tnoremap <ESC> <C-\><C-n>
+tnoremap <leader><ESC> <ESC>
 
 tnoremap <C-h> <C-\><C-n><C-w><C-h>
 tnoremap <C-j> <C-\><C-n><C-w><C-j>
