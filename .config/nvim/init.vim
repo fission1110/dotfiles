@@ -321,7 +321,7 @@ tnoremap <C-l> <C-\><C-n><C-w><C-l>
 " <leader>ti/<leader>ts to terminal split, somewhat matching nerdtree
 set splitright
 set splitbelow
-tnoremap <silent> <leader>ti <C-\><C-n>:execute "vert sp \| term"<cr>
-tnoremap <silent> <leader>ts <C-\><C-n>:execute "split sp \| term"<cr>
-nnoremap <silent> <leader>ti :execute "vert sp \| term"<cr>
-nnoremap <silent> <leader>ts :execute "split sp \| term"<cr>
+tnoremap <silent> <leader>ti <C-\><C-n>:execute "split sp \| term"<cr>
+tnoremap <silent> <leader>ts <C-\><C-n>:execute "vert sp \| term"<cr>
+nnoremap <silent> <leader>ti :execute "split sp \| term"<cr>
+nnoremap <silent> <leader>ts :execute "vert sp \| term"<cr>
