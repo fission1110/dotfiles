@@ -47,7 +47,7 @@ done
 
 if [[ $MISSING -eq 1 ]]; then
 	echo -e -n $BOLD"Missing required dependencies! Attempt auto install? y/n: "$RESET
-	read -n 1 -r
+	read -r
 	echo    # (optional) move to a new line
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then
@@ -67,8 +67,16 @@ echo -e $RESET;
 
 chmod +x -R $INSTALL_DIR/.installerator/*
 
+echo -e -n "Install fzf? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/fzf.sh
+fi
+
 echo -e -n "Install Neovim? y/n:"
-read -n 1 -r
+read -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -76,7 +84,7 @@ then
 fi
 
 echo -e -n "Install pwndbg? y/n:"
-read -n 1 -r
+read -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
@@ -85,7 +93,7 @@ fi
 
 
 echo -e -n "Overwrite home? $RED WARNING DESTRUCTIVE: $RESET this will overwrite files in your home directory. y/n:"
-read -n 1 -r
+read -r
 echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then

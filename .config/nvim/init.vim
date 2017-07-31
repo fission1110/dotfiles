@@ -94,6 +94,9 @@ autocmd BufNewFile,BufReadPost *messages* :set filetype=messages
 " Use systags with c
 autocmd  FileType  c setlocal tags+=~/.config/nvim/ctags/systags
 
+" Search for ctags
+autocmd  BufReadPost * exec Findctags(1)
+
 "#############Nerdtree stuff#############
 autocmd VimEnter * NERDTree
 autocmd VimEnter * NERDTree
@@ -147,13 +150,13 @@ function! Updatectags(more)
     echo "Updating more Ctags!"
 	" If more, losen the restrictions on ctags to include c, c++, etc files..
 	if a:more
-		execute "!~/.config/nvim/ctags/ctags_update_more_c.sh"
+		execute "!~/.config/nvim/ctags/ctags_update_more.sh"
 	else
-		execute "!~/.config/nvim/ctags/ctags_update.sh"
+		execute "!~/.config/nvim/ctags/ctags_update_".&ft.".sh"
 	endif
    	let cwd = getcwd()."/main"
 	let ctags_file = $HOME . "/.config/nvim/mytags"
-    let  &tags = ctags_file.cwd
+    let  &tags = ctags_file.cwd.".".&ft
 endfunction
 
 function! Findctags(silent)
@@ -164,60 +167,54 @@ function! Findctags(silent)
 	let ctags_file = $HOME . "/.config/nvim/ctags/mytags"
     let ctags_path = ctags_file.cwd."/"
     let loopcount = 0
-    while !filereadable(ctags_path."main") && loopcount < 10
+    while !filereadable(ctags_path."main.".&ft) && loopcount < 10
         let ctags_path = substitute(ctags_path, '[^\/]\{-}\/$', '', '')
 		if a:silent == 0
-			echo "looking in: ".ctags_path."main"
+			echo "looking in: ".ctags_path."main.".&ft
 		endif
         let loopcount = loopcount + 1
     endwhile
     if a:silent == 0
-        echo ctags_path."main"
+        echo ctags_path."main.".&ft
     endif
-    let  &tags = ctags_path."main"
+    let  &tags = ctags_path."main.".&ft
 endfunction
 
 "#############Ctrlp#############
 let g:ctrlp_working_path_mode = ''
-nnoremap <c-t> :CtrlPTag<cr>
-exec Findctags(1)
-"ctrlp prompt remap to match nerdtree's
-let g:ctrlp_prompt_mappings = {
-\ 'AcceptSelection("v")': ['<c-s>','<c-v>', '<RightMouse>'],
-\ 'AcceptSelection("h")': ['<c-i>','<c-x>', '<c-cr>'],
-\ }
-" you can add additional root markers, but we arent letting ctrlp manage our
-" working path..
-" let g:ctrlp_root_markers = ['webroot']
-let g:ctrlp_max_files=0
+"nnoremap <c-t> :CtrlPTag<cr>
+"
+" Use fzf instead of ctrlt
+nnoremap <c-t> :Tags<cr>
+"
+" Use fzf instead of ctrlp
+nnoremap <c-p> :Files<cr>
 
-let g:ycm_key_list_select_completion = ['<Enter>', '<Down>']
-let g:ycm_collect_identifiers_from_tags_files = 1
-
+""ctrlp prompt remap to match nerdtree's
+"let g:ctrlp_prompt_mappings = {
+"\ 'AcceptSelection("v")': ['<c-s>','<c-v>', '<RightMouse>'],
+"\ 'AcceptSelection("h")': ['<c-i>','<c-x>', '<c-cr>'],
+"\ }
+"" you can add additional root markers, but we arent letting ctrlp manage our
+"" working path..
+"" let g:ctrlp_root_markers = ['webroot']
+"let g:ctrlp_max_files=0
 au FileType php set omnifunc=phpcomplete#CompletePHP
+
+call deoplete#enable()
+let g:deoplete#enable_at_startup = 1
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
 
 "au FileType php set completefunc=phpcomplete#CompletePHP
 inoremap <C-l> <C-x><C-o>
 
-let g:ycm_semantic_triggers =  {
-  \   'c' : ['->', '.'],
-  \   'objc' : ['->', '.', 're!\[[_a-zA-Z]+\w*\s', 're!^\s*[^\W\d]\w*\s',
-  \             're!\[.*\]\s'],
-  \   'ocaml' : ['.', '#'],
-  \   'cpp,objcpp' : ['->', '.', '::'],
-  \   'perl' : ['->'],
-  \   'cs,java,javascript,typescript,d,python,perl6,scala,vb,elixir,go' : ['.'],
-  \   'ruby' : ['.', '::'],
-  \   'lua' : ['.', ':'],
-  \   'erlang' : [':'],
-  \ }
-let g:ycm_autoclose_preview_window_after_insertion = 1
 let g:phpcomplete_complete_for_unknown_classes = 0
+"let g:deoplete#sources._ = ['buffer', 'tag']
+"set completeopt=longest,menuone,preview
+"inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
-
-
-let g:ycm_autoclose_preview_window_after_insertion = 0
-let g:phpcomplete_complete_for_unknown_classes = 0
 
 let g:vdebug_options = {
 \    "port" : 9000,
@@ -258,10 +255,6 @@ au FileType python nmap <leader>ei :exec '!python3 -i' shellescape(@%, 1)<cr>
 "execute python
 au FileType python nmap <leader>ee :exec '!python' shellescape(@%, 1)<cr>
 
-au FileType python setlocal smartindent
-au FileType python setlocal tabstop=4
-au FileType python setlocal shiftwidth=4
-au FileType python setlocal noexpandtab
 
 let g:jellybeans_use_lowcolor_black = 0
 
@@ -305,7 +298,6 @@ let g:Guifont="DejaVu Sans Mono for Powerline:h13"
 " disable the online shortcut because it conflicts with <C-h> (move to left window)
 let g:php_manual_online_search_shortcut=''
 
-call deoplete#enable()
 :inoremap # X#
 
 " Change neovim terminal settings to match my normal window settings
@@ -326,3 +318,5 @@ tnoremap <silent> <leader>ti <C-\><C-n>:execute "split sp \| term"<cr>
 tnoremap <silent> <leader>ts <C-\><C-n>:execute "vert sp \| term"<cr>
 nnoremap <silent> <leader>ti :execute "split sp \| term"<cr>
 nnoremap <silent> <leader>ts :execute "vert sp \| term"<cr>
+nmap <leader>s :Scratch<cr>
+let g:scratch_persistence_file="/tmp/nvim_scratch_persistance"
