@@ -20,7 +20,7 @@ done
 
 if [[ $MISSING -eq 1 ]]; then
 	echo -e -n $BOLD"Missing required dependencies! Attempt auto install? y/n: "$RESET
-	read -n 1 -r
+	read -r
 	echo    # (optional) move to a new line
 	if [[ $REPLY =~ ^[Yy]$ ]]
 	then

@@ -67,6 +67,30 @@ echo -e $RESET;
 
 chmod +x -R $INSTALL_DIR/.installerator/*
 
+echo -e -n "Install i3-gaps? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/i3-gaps.sh
+fi
+
+echo -e -n "Install polybar? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/polybar.sh
+fi
+
+echo -e -n "Install rofi? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/rofi.sh
+fi
+
 echo -e -n "Install fzf? y/n:"
 read -r
 echo    # (optional) move to a new line

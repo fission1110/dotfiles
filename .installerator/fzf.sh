@@ -4,7 +4,6 @@ if [[ -z $INSTALL_DIR ]]; then
 	exit
 fi
 
-# neovim
 cd /usr/local/src
 git clone --depth 1 https://github.com/junegunn/fzf.git
 cd ./fzf
