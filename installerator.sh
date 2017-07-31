@@ -9,8 +9,13 @@ BOLD="\e[1m"
 RESET="\e[0m"
 
 if [ "$EUID" -ne 0 ]
-  then echo -e $RED"Please run as root"$RESET
-  exit
+	then echo -e $RED"Please run as root"$RESET
+	exit
+fi
+
+# If this script wasn't called with sudo, and we're just logged in as root.. use root as the SUDO_USER
+if [[ -z $SUDO_USER ]]; then
+	$SUDO_USER = $USER
 fi
 
 echo -e $BOLD"[ RECOMMENDED APPS ]"$RESET

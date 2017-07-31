@@ -1,0 +1,16 @@
+[submodule ".config/nvim/bundle/phpcomplete.vim"]
+	path = .config/nvim/bundle/phpcomplete.vim
+	url = https://github.com/shawncplus/phpcomplete.vim.git
+	branch = master
+[submodule ".config/nvim/bundle/vdebug"]
+	path = .config/nvim/bundle/vdebug
+	url = https://github.com/joonty/vdebug.git
+	branch = master
+[submodule ".config/nvim/bundle/vim-repeat"]
+	path = .config/nvim/bundle/vim-repeat
+	url = https://github.com/tpope/vim-repeat.git
+	branch = master
+[submodule ".config/nvim/bundle/vim-sleuth"]
+	path = .config/nvim/bundle/vim-sleuth
+	url = https://github.com/tpope/vim-sleuth.git
+	branch = master
