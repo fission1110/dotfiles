@@ -320,3 +320,6 @@ nnoremap <silent> <leader>ti :execute "split sp \| term"<cr>
 nnoremap <silent> <leader>ts :execute "vert sp \| term"<cr>
 nmap <leader>s :Scratch<cr>
 let g:scratch_persistence_file="/tmp/nvim_scratch_persistance"
+
+inoremap jk <esc>
+inoremap kj <esc>
