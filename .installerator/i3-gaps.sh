@@ -12,6 +12,7 @@ echo    # (optional) move to a new line
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	apt-get -y install pkg-config autoconf automake make clang libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm-dev
+	apt-get -y install nitrogen compton i3status i3lock
 	add-apt-repository ppa:aguignard/ppa
 	apt-get update
 	apt-get -y install libxcb-xrm-dev
@@ -28,3 +29,16 @@ mkdir -p build && cd build/
 ../configure --prefix=/usr/local --sysconfdir=/etc --disable-sanitizers
 make
 sudo make install
+
+mkdir -p /usr/share/xsessions
+cat << EOL > /usr/share/xsessions/i3.desktop
+[Desktop Entry]
+Name=i3
+Comment=improved dynamic tiling window manager
+Exec=i3
+TryExec=i3
+Type=Application
+X-LightDM-DesktopName=i3
+DesktopNames=i3
+EOL
+
