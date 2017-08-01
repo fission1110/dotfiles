@@ -62,6 +62,7 @@ if [[ $? -ne 0 ]]; then
 else
 	cd $INSTALL_DIR
 	git pull origin master
+	git submodule update --init --recursive
 fi
 echo -e $RESET;
 
