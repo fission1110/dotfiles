@@ -132,6 +132,8 @@ endfunction
 " HEX MODE!!
 nmap <leader>hh :%!xxd<cr>
 nmap <leader>hu :%!xxd -r<cr>
+"turn on javascript snippets in typescript files
+au BufRead,BufNewFile *.ts set ft=typescript.javascript
 
 "turn on html snippets in php files
 au BufRead *.php set ft=php

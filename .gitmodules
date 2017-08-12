@@ -14,3 +14,6 @@
 	path = .config/nvim/bundle/vim-sleuth
 	url = https://github.com/tpope/vim-sleuth.git
 	branch = master
+[submodule ".config/nvim/bundle/typescript-vim"]
+	path = .config/nvim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
