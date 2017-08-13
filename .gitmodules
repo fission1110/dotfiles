@@ -17,3 +17,6 @@
 [submodule ".config/nvim/bundle/typescript-vim"]
 	path = .config/nvim/bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
+[submodule ".config/nvim/bundle/nvim-typescript"]
+	path = .config/nvim/bundle/nvim-typescript
+	url = https://github.com/mhartington/nvim-typescript.git
