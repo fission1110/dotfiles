@@ -76,3 +76,4 @@ alias psql_log='su -c "psql ds_log" postgres'
 alias psql='su -c "psql dsweb" postgres'
 alias vvim=/usr/bin/vim
 alias vim=/usr/local/bin/nvim
+PATH=$PATH:$HOME/.composer/vendor/bin

@@ -128,3 +128,4 @@ set -o vi
 alias display='export DISPLAY=:0.0'
 alias vvim=/usr/bin/vim
 alias vim=/usr/local/bin/nvim
+PATH=$PATH:$HOME/.composer/vendor/bin

@@ -108,6 +108,22 @@ then
 	. $INSTALL_DIR/.installerator/nvim.sh
 fi
 
+echo -e -n "Install deoplete-jedi for python completion in neovim?? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/nvim-jedi.sh
+fi
+
+echo -e -n "Install deoplete-padawan for php completion in neovim?? y/n:"
+read -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]
+then
+	. $INSTALL_DIR/.installerator/nvim-padawan.sh
+fi
+
 echo -e -n "Install pwndbg? y/n:"
 read -r
 echo    # (optional) move to a new line

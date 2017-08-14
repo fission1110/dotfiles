@@ -320,8 +320,13 @@ tnoremap <silent> <leader>ti <C-\><C-n>:execute "split sp \| term"<cr>
 tnoremap <silent> <leader>ts <C-\><C-n>:execute "vert sp \| term"<cr>
 nnoremap <silent> <leader>ti :execute "split sp \| term"<cr>
 nnoremap <silent> <leader>ts :execute "vert sp \| term"<cr>
+tnoremap <silent> <leader>tt :tabnew term:///$SHELL<cr>
+nnoremap <silent> <leader>tt :tabnew term://$SHELL<cr>
+
+imap <silent> jk <ESC>
+imap <silent> kj <ESC>
+tmap <silent> jk <ESC>
+tmap <silent> kj <ESC>
+
 nmap <leader>s :Scratch<cr>
 let g:scratch_persistence_file="/tmp/nvim_scratch_persistance"
-
-inoremap jk <esc>
-inoremap kj <esc>
