@@ -185,12 +185,24 @@ endfunction
 "#############Ctrlp#############
 let g:ctrlp_working_path_mode = ''
 "nnoremap <c-t> :CtrlPTag<cr>
-"
+
+function! GFilesFallback()
+  let output = system('git rev-parse --show-toplevel')
+  let prefix = get(g:, 'fzf_command_prefix', '')
+  if v:shell_error == 0
+    exec "normal :" . prefix . "GFiles\<CR>"
+  else
+    exec "normal :" . prefix . "Files\<CR>"
+  endif
+  return 0
+endfunction
+
+nnoremap <c-p> :call GFilesFallback()<CR>
 " Use fzf instead of ctrlt
 nnoremap <c-t> :Tags<cr>
 "
 " Use fzf instead of ctrlp
-nnoremap <c-p> :Files<cr>
+"nnoremap <c-p> :Files<cr>
 
 ""ctrlp prompt remap to match nerdtree's
 "let g:ctrlp_prompt_mappings = {
