@@ -32,17 +32,6 @@ if [[ $MISSING -eq 1 ]]; then
 		composer.phar self-update
 	fi
 fi
-cd /usr/local/src
 composer.phar global require mkusher/padawan
 
-git clone --recursive https://github.com/padawan-php/deoplete-padawan.git
-
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/deoplete_padawan 2>/dev/null
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/deoplete_padawan.py 2>/dev/null
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.vim/autoload/deoplete/sources/padawan.vim
-mkdir -p $INSTALL_DIR/.config/nvim/bundle/deoplete.vim/autoload/deoplete/sources/
-
-cp -r ./deoplete-padawan/rplugin/python3/deoplete/sources/deoplete_padawan $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/
-cp -r ./deoplete-padawan/rplugin/python3/deoplete/sources/deoplete_padawan.py $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/
-
-cp -r ./deoplete-padawan/autoload/deoplete/sources/padawan.vim $INSTALL_DIR/.config/nvim/bundle/deoplete.vim/autoload/deoplete/sources/
+cp -r $INSTALL_DIR.config/nvim/bundle/deoplete-padawan/rplugin/* $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/

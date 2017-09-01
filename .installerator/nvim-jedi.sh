@@ -29,15 +29,7 @@ if [[ $MISSING -eq 1 ]]; then
 fi
 pip install --upgrade jedi
 pip3 install --upgrade jedi
+pip install --upgrade neovim
+pip3 install --upgrade neovim
 
-
-cd /usr/local/src
-git clone --recursive https://github.com/zchee/deoplete-jedi
-
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/deoplete_jedi 2>/dev/null
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/deoplete_jedi.py 2>/dev/null
-rm -r $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/jedi 2>/dev/null
-
-cp -r ./deoplete-jedi/rplugin/python3/deoplete/sources/deoplete_jedi $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/
-cp -r ./deoplete-jedi/rplugin/python3/deoplete/sources/deoplete_jedi.py $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/sources/
-cp -r ./deoplete-jedi/rplugin/python3/deoplete/jedi $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/python3/deoplete/
+cp -r $INSTALL_DIR/.config/nvim/bundle/deoplete-jedi/rplugin/* $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/

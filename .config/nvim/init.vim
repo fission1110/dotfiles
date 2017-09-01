@@ -1,6 +1,7 @@
 call pathogen#infect()
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $TERM="screen-256color"
+set mouse=a
 set showcmd		" Show (partial) command in status line.
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
@@ -184,7 +185,6 @@ endfunction
 
 "#############Ctrlp#############
 let g:ctrlp_working_path_mode = ''
-"nnoremap <c-t> :CtrlPTag<cr>
 
 function! GFilesFallback()
   let output = system('git rev-parse --show-toplevel')
@@ -198,25 +198,26 @@ function! GFilesFallback()
 endfunction
 
 nnoremap <c-p> :call GFilesFallback()<CR>
+
 " Use fzf instead of ctrlt
 nnoremap <c-t> :Tags<cr>
-"
-" Use fzf instead of ctrlp
-"nnoremap <c-p> :Files<cr>
 
-""ctrlp prompt remap to match nerdtree's
-"let g:ctrlp_prompt_mappings = {
-"\ 'AcceptSelection("v")': ['<c-s>','<c-v>', '<RightMouse>'],
-"\ 'AcceptSelection("h")': ['<c-i>','<c-x>', '<c-cr>'],
-"\ }
-"" you can add additional root markers, but we arent letting ctrlp manage our
-"" working path..
-"" let g:ctrlp_root_markers = ['webroot']
-"let g:ctrlp_max_files=0
+"let g:SuperTabNoCompleteAfter = ['^', ',', '\s']
+let g:SuperTabDefaultCompletionType = "<c-n>"
+
+" vim-jedi go to definition
+au FileType python nmap <c-]> <leader>d
+
+" My hack to the forked version of vim snipmate to ignore the
+" fact that the pumvisible() and use my snippets anyways.
+let g:snipmateIgnorePum = 1
+
+let g:jedi#auto_close_doc = 0
+let g:jedi#completions_enabled = 0
+
 au FileType php set omnifunc=phpcomplete#CompletePHP
-
-call deoplete#enable()
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#jedi#show_docstring = 1
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
