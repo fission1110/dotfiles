@@ -136,6 +136,8 @@ nmap <leader>hu :%!xxd -r<cr>
 "turn on javascript snippets in typescript files
 au BufRead,BufNewFile *.ts set ft=typescript.javascript
 
+au FileType typescript set ts=2 sw=2 expandtab
+
 "turn on html snippets in php files
 au BufRead *.php set ft=php
 au BufNewFile *.php set ft=php
