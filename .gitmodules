@@ -41,3 +41,6 @@
 [submodule ".config/nvim/bundle/vim-addon-mw-utils"]
 	path = .config/nvim/bundle/vim-addon-mw-utils
 	url = https://github.com/MarcWeber/vim-addon-mw-utils.git
+[submodule ".config/nvim/bundle/codi.vim"]
+	path = .config/nvim/bundle/codi.vim
+	url = https://github.com/metakirby5/codi.vim.git
