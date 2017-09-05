@@ -223,8 +223,12 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 
 let g:tern_set_omni_function = 0
 
+let g:deoplete#sources#ternjs#docs = 1
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
+
+
 if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
