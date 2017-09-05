@@ -47,3 +47,6 @@
 [submodule ".config/nvim/bundle/deoplete-ternjs"]
 	path = .config/nvim/bundle/deoplete-ternjs
 	url = https://github.com/carlitux/deoplete-ternjs.git
+[submodule ".config/nvim/bundle/tern_for_vim"]
+	path = .config/nvim/bundle/tern_for_vim
+	url = https://github.com/ternjs/tern_for_vim.git

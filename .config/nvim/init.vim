@@ -209,6 +209,8 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " vim-jedi go to definition
 au FileType python nmap <c-]> <leader>d
+" tern_for_vim go to defenition
+au FileType javascript nmap <c-]> :TernDef<cr>
 
 " My hack to the forked version of vim snipmate to ignore the
 " fact that the pumvisible() and use my snippets anyways.
@@ -218,6 +220,9 @@ let g:jedi#auto_close_doc = 0
 let g:jedi#completions_enabled = 0
 
 au FileType php set omnifunc=phpcomplete#CompletePHP
+
+let g:tern_set_omni_function = 0
+
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#jedi#show_docstring = 1
 if !exists('g:deoplete#omni#input_patterns')
