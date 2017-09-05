@@ -50,3 +50,6 @@
 [submodule ".config/nvim/bundle/tern_for_vim"]
 	path = .config/nvim/bundle/tern_for_vim
 	url = https://github.com/ternjs/tern_for_vim.git
+[submodule ".config/nvim/bundle/syntastic"]
+	path = .config/nvim/bundle/syntastic
+	url = https://github.com/vim-syntastic/syntastic.git
