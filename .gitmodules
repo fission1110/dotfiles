@@ -44,3 +44,6 @@
 [submodule ".config/nvim/bundle/codi.vim"]
 	path = .config/nvim/bundle/codi.vim
 	url = https://github.com/metakirby5/codi.vim.git
+[submodule ".config/nvim/bundle/deoplete-ternjs"]
+	path = .config/nvim/bundle/deoplete-ternjs
+	url = https://github.com/carlitux/deoplete-ternjs.git
