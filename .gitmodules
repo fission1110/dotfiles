@@ -53,3 +53,6 @@
 [submodule ".config/nvim/bundle/syntastic"]
 	path = .config/nvim/bundle/syntastic
 	url = https://github.com/vim-syntastic/syntastic.git
+[submodule ".config/nvim/bundle/vim-python-pep8-indent"]
+	path = .config/nvim/bundle/vim-python-pep8-indent
+	url = https://github.com/Vimjas/vim-python-pep8-indent.git
