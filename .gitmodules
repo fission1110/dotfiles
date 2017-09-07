@@ -56,3 +56,6 @@
 [submodule ".config/nvim/bundle/vim-python-pep8-indent"]
 	path = .config/nvim/bundle/vim-python-pep8-indent
 	url = https://github.com/Vimjas/vim-python-pep8-indent.git
+[submodule ".oh-my-zsh"]
+	path = .oh-my-zsh
+	url = https://github.com/robbyrussell/oh-my-zsh.git
