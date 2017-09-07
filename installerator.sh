@@ -1,6 +1,16 @@
 #!/bin/bash
-INSTALL_DIR="/tmp/dotfiles"
 LATEST_STABLE_NVIM=v0.2.0
+
+
+if [[ -z "${BASH_SOURCE[0]}" ]]; then
+	INSTALL_DIR="/tmp/dotfiles"
+else
+	INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+fi
+
+echo $INSTALL_DIR
+exit 0
+#echo $DIR
 
 RED="\e[31m"
 GREEN="\e[32m"
