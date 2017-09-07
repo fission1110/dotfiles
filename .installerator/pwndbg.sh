@@ -17,6 +17,8 @@ else
 fi
 echo -e $RESET;
 
+pip3 install -r .pwndbg/requirements.txt
+
 cd ./.pwndbg
 # Do this because the setup.sh script overwrites ~/.gdbinit .. we don't know if we want to do that yet.
 HOME=$INSTALL_DIR ./setup.sh
