@@ -5,7 +5,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="kafeitu"
+ZSH_THEME="amuse"
 
 
 # Example aliases
@@ -37,7 +37,7 @@ DISABLE_AUTO_UPDATE="true"
 # Uncomment following line if you want to disable marking untracked files under
 # VCS as dirty. This makes repository status check for large repositories much,
 # much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
+DISABLE_UNTRACKED_FILES_DIRTY="true"
 
 # Uncomment following line if you want to the command execution time stamp shown 
 # in the history command output.
@@ -72,8 +72,6 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 #vi mode
 bindkey -v
 
-alias psql_log='su -c "psql ds_log" postgres'
-alias psql='su -c "psql dsweb" postgres'
 alias vvim=/usr/bin/vim
 alias vim=/usr/local/bin/nvim
 PATH=$PATH:$HOME/.composer/vendor/bin
