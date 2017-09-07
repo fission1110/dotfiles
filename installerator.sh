@@ -61,8 +61,8 @@ if [[ $? -ne 0 ]]; then
 	git clone --recursive https://github.com/fission1110/dotfiles.git $INSTALL_DIR
 else
 	cd $INSTALL_DIR
-	git pull origin master
-	git submodule update --init --recursive
+	sudo -u $SUDO_USER git pull origin master
+	sudo -u $SUDO_USER git submodule update --init --recursive
 fi
 echo -e $RESET;
 
