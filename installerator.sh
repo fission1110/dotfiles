@@ -8,10 +8,6 @@ else
 	INSTALL_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 fi
 
-echo $INSTALL_DIR
-exit 0
-#echo $DIR
-
 RED="\e[31m"
 GREEN="\e[32m"
 BLUE="\e[34m"
