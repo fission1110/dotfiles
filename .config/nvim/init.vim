@@ -137,6 +137,10 @@ nmap <leader>hu :%!xxd -r<cr>
 au BufRead,BufNewFile *.ts set ft=typescript.javascript
 
 au FileType typescript set ts=2 sw=2 expandtab
+au FileType html set ts=2 sw=2 expandtab
+
+au FileType javascript set ts=4 sw=4 noexpandtab
+au FileType php set ts=4 sw=4 noexpandtab
 
 "turn on html snippets in php files
 au BufRead *.php set ft=php
@@ -219,7 +223,7 @@ let g:snipmateIgnorePum = 1
 let g:jedi#auto_close_doc = 0
 let g:jedi#completions_enabled = 0
 
-au FileType php set omnifunc=phpcomplete#CompletePHP
+au FileType php set omnifunc=phpcomplete_extended#CompletePHP
 
 let g:tern_set_omni_function = 0
 
@@ -233,7 +237,6 @@ if !exists('g:deoplete#omni#input_patterns')
   let g:deoplete#omni#input_patterns = {}
 endif
 
-"au FileType php set completefunc=phpcomplete#CompletePHP
 inoremap <C-l> <C-x><C-o>
 
 let g:phpcomplete_complete_for_unknown_classes = 0

@@ -80,3 +80,9 @@
 [submodule ".config/nvim/bundle/vim-php-manual"]
 	path = .config/nvim/bundle/vim-php-manual
 	url = git@github.com:alvan/vim-php-manual.git
+[submodule ".config/nvim/bundle/phpcomplete-extended"]
+	path = .config/nvim/bundle/phpcomplete-extended
+	url = git@github.com:m2mdas/phpcomplete-extended.git
+[submodule ".config/nvim/bundle/vimproc.vim"]
+	path = .config/nvim/bundle/vimproc.vim
+	url = https://github.com/Shougo/vimproc.vim
