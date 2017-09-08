@@ -62,3 +62,21 @@
 [submodule ".config/nvim/bundle/vim-fugitive"]
 	path = .config/nvim/bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule ".config/nvim/bundle/jellybeans.vim"]
+	path = .config/nvim/bundle/jellybeans.vim
+	url = git@github.com:nanotech/jellybeans.vim.git
+[submodule ".config/nvim/bundle/nerdtree"]
+	path = .config/nvim/bundle/nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule ".config/nvim/bundle/scratch.vim"]
+	path = .config/nvim/bundle/scratch.vim
+	url = git@github.com:mtth/scratch.vim.git
+[submodule ".config/nvim/bundle/vim-easygrep"]
+	path = .config/nvim/bundle/vim-easygrep
+	url = git@github.com:dkprice/vim-easygrep.git
+[submodule ".config/nvim/bundle/vim-foldsearch"]
+	path = .config/nvim/bundle/vim-foldsearch
+	url = git@github.com:embear/vim-foldsearch.git
+[submodule ".config/nvim/bundle/vim-php-manual"]
+	path = .config/nvim/bundle/vim-php-manual
+	url = git@github.com:alvan/vim-php-manual.git

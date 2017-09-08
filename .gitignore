@@ -1,13 +1,1 @@
-.cache
-.local/share/nvim/shada/main.shada
-
-.zcompdump*
-
-.i3/i3log
-
-.zsh_history
-.bash_history
-.gdb_history
-
-.pwndbg
 *
