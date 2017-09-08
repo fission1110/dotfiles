@@ -33,5 +33,3 @@ if [[ $MISSING -eq 1 ]]; then
 	fi
 fi
 composer.phar global require mkusher/padawan
-
-cp -r $INSTALL_DIR.config/nvim/bundle/deoplete-padawan/rplugin/* $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/

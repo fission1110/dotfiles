@@ -31,5 +31,3 @@ pip install --upgrade jedi
 pip3 install --upgrade jedi
 pip install --upgrade neovim
 pip3 install --upgrade neovim
-
-cp -r $INSTALL_DIR/.config/nvim/bundle/deoplete-jedi/rplugin/* $INSTALL_DIR/.config/nvim/bundle/deoplete.nvim/rplugin/
