@@ -42,13 +42,13 @@ nnoremap } <C-i>
 cmap w!! w !sudo tee % >/dev/null
 
 " This doesn't seem to work in nvim
-"vmap <leader>y "+y 
+"vmap <leader>y "+y
 "vmap <leader>y "+p
 
 """"" EASY GREP STUFF """"""""
 nmap <C-f> :Grep 
 "let g:EasyGrepDefaultUserPattern='*.php *.ctp *.js *.po'
-let g:EasyGrepFileAssociations=$HOME+'/nvim/bundle/EasyGrep/plugin/EasyGrepFileAssociations'
+let g:EasyGrepFileAssociations=$HOME."/.config/nvim/bundle/vim-easygrep/plugin/EasyGrepFileAssociations"
 let g:EasyGrepMode=0
 let g:EasyGrepCommand=1
 let g:EasyGrepRecursive=1
