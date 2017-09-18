@@ -86,3 +86,6 @@
 [submodule ".config/nvim/bundle/vimproc.vim"]
 	path = .config/nvim/bundle/vimproc.vim
 	url = https://github.com/Shougo/vimproc.vim
+[submodule ".config/nvim/bundle/vim-autoformat"]
+	path = .config/nvim/bundle/vim-autoformat
+	url = https://github.com/Chiel92/vim-autoformat.git
