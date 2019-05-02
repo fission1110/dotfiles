@@ -1,5 +1,5 @@
 #!/bin/bash
-LATEST_STABLE_NVIM=v0.2.0
+LATEST_STABLE_NVIM=stable
 
 
 INSTALL_DIR="/tmp/dotfiles"
