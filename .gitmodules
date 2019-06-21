@@ -89,3 +89,12 @@
 [submodule ".config/nvim/bundle/vim-autoformat"]
 	path = .config/nvim/bundle/vim-autoformat
 	url = https://github.com/Chiel92/vim-autoformat.git
+[submodule ".config/nvim/bundle/vim-slumlord"]
+	path = .config/nvim/bundle/vim-slumlord
+	url = https://github.com/scrooloose/vim-slumlord.git
+[submodule ".config/nvim/bundle/plantuml-syntax"]
+	path = .config/nvim/bundle/plantuml-syntax
+	url = https://github.com/aklt/plantuml-syntax.git
+[submodule ".config/nvim/bundle/deoplete-clang"]
+	path = .config/nvim/bundle/deoplete-clang
+	url = https://github.com/zchee/deoplete-clang.git

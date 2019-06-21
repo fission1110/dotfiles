@@ -1,8 +1,10 @@
 call pathogen#infect()
 "let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 let $TERM="screen-256color"
+set title titlestring=%{getcwd()}\ (%{fnamemodify(expand(\"%\"),\ \":~:.\")})\ -\ NVIM
 set mouse=a
 set showcmd		" Show (partial) command in status line.
+set synmaxcol=600
 set showmatch		" Show matching brackets.
 set ignorecase		" Do case insensitive matching
 set smartcase		" Do smart case matching
@@ -78,6 +80,9 @@ map <C-l> <C-w>l
 " ,ee will run the file
 au FileType sh nmap <leader>ee :exec '!bash' shellescape(@%, 1)<cr>
 xnoremap <leader>er :!python<cr>
+
+au FileType python setlocal ts=4 sw=4 smartindent expandtab
+au FileType php setlocal ts=4 sw=4 smartindent noexpandtab
 
 au FileType c nmap <leader>ee :exec '!gcc -o test ' shellescape(@%, 1)<cr> :exec '!./test'<cr>
 au FileType c nmap <leader>ei :exec '!gcc -g -o test ' shellescape(@%, 1)<cr> :exec '!gdb ./test'<cr>
@@ -214,7 +219,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " vim-jedi go to definition
 au FileType python nmap <c-]> <leader>d
 " tern_for_vim go to defenition
-au FileType javascript nmap <c-]> :TernDef<cr>
+" au FileType javascript nmap <c-]> :TernDef<cr>
 
 " My hack to the forked version of vim snipmate to ignore the
 " fact that the pumvisible() and use my snippets anyways.
@@ -280,9 +285,9 @@ let g:vdebug_features = {'max_depth': 10}
 
 "#############Python Stuff#############
 "execute python, then drop to the interpreter
-au FileType python nmap <leader>ei :exec '!python3 -i' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ee :exec '!python3' shellescape(@%, 1)<cr>
 "execute python
-au FileType python nmap <leader>ee :exec '!python' shellescape(@%, 1)<cr>
+au FileType python nmap <leader>ei :exec '!python' shellescape(@%, 1)<cr>
 
 
 let g:jellybeans_use_lowcolor_black = 0
@@ -323,15 +328,16 @@ command -nargs=? Guifont call rpcnotify(0, 'Gui', 'SetFont', "<args>")
 " Set font on start
 let g:Guifont="DejaVu Sans Mono for Powerline:h13"
 
-
 " disable the online shortcut because it conflicts with <C-h> (move to left window)
 let g:php_manual_online_search_shortcut=''
 
+" Some autocomplete command? what is this?
 :inoremap # X#
 
-" Change neovim terminal settings to match my normal window settings
-tnoremap <ESC> <C-\><C-n>
-tnoremap <leader><ESC> <ESC>
+" ESC sends <ESC> key to terminal (good for nested vim). Press ESC ESC to
+" really escape.
+tnoremap <ESC><ESC> <C-\><C-n>
+tnoremap <ESC> <ESC>
 
 tnoremap <C-h> <C-\><C-n><C-w><C-h>
 tnoremap <C-j> <C-\><C-n><C-w><C-j>
@@ -350,11 +356,6 @@ nnoremap <silent> <leader>ts :execute "vert sp \| term"<cr>
 tnoremap <silent> <leader>tt :tabnew term:///$SHELL<cr>
 nnoremap <silent> <leader>tt :tabnew term://$SHELL<cr>
 
-imap <silent> jk <ESC>
-imap <silent> kj <ESC>
-tmap <silent> jk <ESC>
-tmap <silent> kj <ESC>
-
 nmap <leader>s :Scratch<cr>
 let g:scratch_persistence_file="/tmp/nvim_scratch_persistance"
 
@@ -369,3 +370,20 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 nmap <leader>S :SyntasticToggle<cr>
 let g:syntastic_mode_map = {"mode": "passive", "active_filetypes":[], "passive_filetypes":[]}
+
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/include/clang'
+augr class
+au!
+au bufreadpost,filereadpost *.class %!/usr/local/src/jad/jad -noctor -ff -i -p %
+au bufreadpost,filereadpost *.class set readonly
+au bufreadpost,filereadpost *.class set ft=java
+au bufreadpost,filereadpost *.class normal gg=G
+au bufreadpost,filereadpost *.class set nomodified
+augr END
+"autocmd BufReadPost,FileReadPost,BufNewFile * call system("tmux rename-window " . expand("%F"))
+
+let g:gutentags_cache_dir = '~/.config/nvim/ctags/mytags/'
+let g:gutentags_project_root = ['Makefile']
+" Causes hangs for some reason
+let g:gutentags_generate_on_write = 0
